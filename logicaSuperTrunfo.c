@@ -2,13 +2,10 @@
 
 
 int main() {
-    // Definição das variáveis para armazenar as propriedades das cidades
-    // Você pode utilizar o código do primeiro desafio
-      // Área para definição das variáveis para armazenar as propriedades das cidades
 
   char state,state2;
   char codigoState[6], cidade[70], codigoState2[6], cidade2[70];
-  int pontosTuristico, pontosTuristico2;
+  int pontosTuristico, pontosTuristico2,escolhaAtributo;
   unsigned long int population, population2;
   float areaKM,PIB, areaKM2, PIB2,densidade,densidade2,PIBCapita,PIBCapita2,superPoderA,superPoderB;
 
@@ -80,99 +77,99 @@ int main() {
     printf("\nDensidade Populacional: %.2f hab/km²",densidade2);
     printf("\nPIB per Capita: R$%.2f reais",PIBCapita2);
 
-
-// INCLUINDO LOGICA IF - ELSE
-
-    if (population > population2)
-{
-  printf("\n\nPOPULACAO:");
-  printf("\nCARTA 01 (%s): %lu \n",cidade,population);
-  printf("CARTA 02 (%s): %lu \n", cidade2,population2);
-  printf("CARTA 01 (%s) VENCEU!",cidade);
-    }else{
-  printf("\n\nPOPULACAO:");
-  printf("\nCARTA 01 (%s): %lu \n",cidade,population);
-  printf("CARTA 02 (%s): %lu \n", cidade2,population2);
-  printf("CARTA 02 (%s) VENCEU!",cidade2);
-}
-
-    if (areaKM > areaKM2)
-{
-  printf("\n\nAREA KM:");
-  printf("\nCARTA 01 (%s): %f \n",cidade,areaKM);
-  printf("CARTA 02 (%s): %f \n", cidade2,areaKM2);
-  printf("CARTA 01 (%s) VENCEU!",cidade);
-    }else{
-  printf("\n\nAREA KM:");
-  printf("\nCARTA 01 (%s): %f \n",cidade,areaKM);
-  printf("CARTA 02 (%s): %f \n", cidade2,areaKM2);
-  printf("CARTA 02 (%s) VENCEU!",cidade2);
-}
-
-    if (PIB > PIB2)
-    {
-    printf("\n\nPIB:");
-    printf("\nCARTA 01 (%s): %f \n",cidade,PIB);
-    printf("CARTA 02 (%s): %f \n", cidade2,PIB2);
-    printf("CARTA 01 (%s) VENCEU!",cidade);
-    }else{
-  printf("\n\nPIB:");
-  printf("\nCARTA 01 (%s): %f \n",cidade,PIB);
-  printf("CARTA 02 (%s): %f \n", cidade2,PIB2);
-  printf("CARTA 02 (%s) VENCEU!",cidade2);
-}
-
-    if (pontosTuristico > pontosTuristico2)
-    {
-    printf("\n\nPONTOS TURISTICOS:");
-    printf("\nCARTA 01 (%s): %d \n",cidade,pontosTuristico);
-    printf("CARTA 02 (%s): %d \n", cidade2,pontosTuristico2);
-    printf("CARTA 01 (%s) VENCEU!",cidade);
-    }else{
-    printf("\n\nPONTOS TURISTICOS:");
-    printf("\nCARTA 01 (%s): %d \n",cidade,pontosTuristico);
-    printf("CARTA 02 (%s): %d \n", cidade2,pontosTuristico2);
-    printf("CARTA 02 (%s) VENCEU!",cidade2);
-    }
-
-    if (densidade < densidade2)
-    {
-    printf("\n\nDENSIDADE:");
-    printf("\nCARTA 01 (%s): %f \n",cidade,densidade);
-    printf("CARTA 02 (%s): %f \n", cidade2,densidade2);
-    printf("CARTA 01 (%s) VENCEU!",cidade);
-    }else{
-    printf("\n\nDENSIDADE:");
-    printf("\nCARTA 01 (%s): %f \n",cidade,densidade);
-    printf("CARTA 02 (%s): %f \n", cidade2,densidade2);
-    printf("CARTA 02 (%s) VENCEU!",cidade2);
-    }
-
-    if (PIBCapita > PIBCapita2)
-    {
-    printf("\n\nPIB PER CAPITA:");
-    printf("\nCARTA 01 (%s): %f \n",cidade,PIBCapita);
-    printf("CARTA 02 (%s): %f \n", cidade2,PIBCapita2);
-    printf("CARTA 01 (%s) VENCEU!",cidade);
-    }else{
-    printf("\n\nPIB PER CAPITA:");
-    printf("\nCARTA 01 (%s): %f \n",cidade,PIBCapita);
-    printf("CARTA 02 (%s): %f \n", cidade2,PIBCapita2);
-    printf("CARTA 02 (%s) VENCEU!",cidade2);
-    }
-
-    if (superPoderA > superPoderB)
-    {
-    printf("\n\nSUPER POWER:");
-    printf("\nCARTA 01 (%s): %f \n",cidade,superPoderA);
-    printf("CARTA 02 (%s): %f \n", cidade2,superPoderB);
-    printf("CARTA 01 (%s) VENCEU!",cidade);
-    }else{
-    printf("\n\nSUPER POWER:");
-    printf("\nCARTA 01 (%s): %f \n",cidade,superPoderA);
-    printf("CARTA 02 (%s): %f \n", cidade2,superPoderB);
-    printf("CARTA 02 (%s) VENCEU!",cidade2);
-    }
     
-    return 0;
+        // MENU INTERATIVO
+
+    printf("\n\nEscolha um atributo:\n");
+    printf("1. Nome das cidades\n"
+            "2. População\n"
+            "3. Área\n"
+            "4. PIBs\n"
+            "5. Pontos Turisticos\n"
+            "6. Densidade Demografica\n"
+            "Atributo: ");
+    scanf("%d", &escolhaAtributo);
+
+    switch (escolhaAtributo) {
+    case 1:
+        printf("%s x %s",cidade,cidade2);
+        break;
+
+    case 2:
+        if (population > population2){
+        printf("\n\nPOPULACAO:");
+        printf("\nCARTA 01 (%s): %lu \n",cidade,population);
+        printf("CARTA 02 (%s): %lu \n", cidade2,population2);
+        printf("CARTA 01 (%s) VENCEU!",cidade);
+    }else{
+        printf("\n\nPOPULACAO:");
+        printf("\nCARTA 01 (%s): %lu \n",cidade,population);
+        printf("CARTA 02 (%s): %lu \n", cidade2,population2);
+        printf("CARTA 02 (%s) VENCEU!",cidade2);
+    }
+    break;
+
+    case 3:
+        if (areaKM > areaKM2){
+        printf("\n\nAREA KM:");
+        printf("\nCARTA 01 (%s): %f \n",cidade,areaKM);
+        printf("CARTA 02 (%s): %f \n", cidade2,areaKM2);
+        printf("CARTA 01 (%s) VENCEU!",cidade);
+            }else{
+        printf("\n\nAREA KM:");
+        printf("\nCARTA 01 (%s): %f \n",cidade,areaKM);
+        printf("CARTA 02 (%s): %f \n", cidade2,areaKM2);
+        printf("CARTA 02 (%s) VENCEU!",cidade2);
+    }
+    break;
+
+    case 4:
+        if (PIB > PIB2){
+        printf("\n\nPIB:");
+        printf("\nCARTA 01 (%s): %f \n",cidade,PIB);
+        printf("CARTA 02 (%s): %f \n", cidade2,PIB2);
+        printf("CARTA 01 (%s) VENCEU!",cidade);
+        }else{
+        printf("\n\nPIB:");
+        printf("\nCARTA 01 (%s): %f \n",cidade,PIB);
+        printf("CARTA 02 (%s): %f \n", cidade2,PIB2);
+        printf("CARTA 02 (%s) VENCEU!",cidade2);
+    }
+    break;
+
+    case 5:
+     if (pontosTuristico > pontosTuristico2){
+        printf("\n\nPONTOS TURISTICOS:");
+        printf("\nCARTA 01 (%s): %d \n",cidade,pontosTuristico);
+        printf("CARTA 02 (%s): %d \n", cidade2,pontosTuristico2);
+        printf("CARTA 01 (%s) VENCEU!",cidade);
+    }else{
+        printf("\n\nPONTOS TURISTICOS:");
+        printf("\nCARTA 01 (%s): %d \n",cidade,pontosTuristico);
+        printf("CARTA 02 (%s): %d \n", cidade2,pontosTuristico2);
+        printf("CARTA 02 (%s) VENCEU!",cidade2);
+    }
+    break;
+
+    case 6:
+       if (densidade < densidade2){
+        printf("\n\nDENSIDADE:");
+        printf("\nCARTA 01 (%s): %f \n",cidade,densidade);
+        printf("CARTA 02 (%s): %f \n", cidade2,densidade2);
+        printf("CARTA 01 (%s) VENCEU!",cidade);
+    }else{
+        printf("\n\nDENSIDADE:");
+        printf("\nCARTA 01 (%s): %f \n",cidade,densidade);
+        printf("CARTA 02 (%s): %f \n", cidade2,densidade2);
+        printf("CARTA 02 (%s) VENCEU!",cidade2);
+    }
+    break;
+    
+    default:
+        printf("Opção invalida");
+        break;
+    }
+
+
+    return(0);
 }
